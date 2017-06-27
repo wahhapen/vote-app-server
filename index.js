@@ -1,3 +1,4 @@
 import makeStore from './src/store';
 
-export const store = makeStore();
+const store = makeStore();
+export default store;
