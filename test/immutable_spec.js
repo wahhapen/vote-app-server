@@ -1,13 +1,14 @@
-import { expect } from "chai";
-import { List, Map } from "immutable";
+import { List, Map } from 'immutable';
+import { describe, it } from 'mocha';
+import { expect } from 'chai';
 
-describe("immutability", () => {
-  describe("a number", () => {
+describe('immutability', () => {
+  describe('a number', () => {
     function increment(currentState) {
       return currentState + 1;
     }
 
-    it("is immutable", () => {
+    it('is immutable', () => {
       const state = 42;
       const nextState = increment(state);
 
@@ -16,25 +17,25 @@ describe("immutability", () => {
     });
   });
 
-  describe("a tree", () => {
+  describe('a tree', () => {
     function addMovie(currentState, movie) {
-      return currentState.update("movies", movies => movies.push(movie));
+      return currentState.update('movies', movies => movies.push(movie));
     }
 
-    it("is immutable", () => {
+    it('is immutable', () => {
       const state = Map({
-        movies: List.of("Trainspotting", "28 Days Later")
+        movies: List.of('Trainspotting', '28 Days Later')
       });
-      const nextState = addMovie(state, "Sunshine");
+      const nextState = addMovie(state, 'Sunshine');
 
       expect(nextState).to.equal(
         Map({
-          movies: List.of("Trainspotting", "28 Days Later", "Sunshine")
+          movies: List.of('Trainspotting', '28 Days Later', 'Sunshine')
         })
       );
       expect(state).to.equal(
         Map({
-          movies: List.of("Trainspotting", "28 Days Later")
+          movies: List.of('Trainspotting', '28 Days Later')
         })
       );
     });
