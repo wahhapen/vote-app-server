@@ -36,6 +36,7 @@ describe('application logic', () => {
       expect(nextState).to.equal(
         Map({
           vote: Map({
+            round: 1,
             pair: List.of('Trainspotting', '28 Days Later')
           }),
           entries: List.of('Sunshine')
@@ -45,6 +46,7 @@ describe('application logic', () => {
     it('puts winner of current vote back to entries', () => {
       const state = Map({
         vote: Map({
+          round: 1,
           pair: List.of('Trainspotting', '28 Days Later'),
           tally: Map({
             Trainspotting: 4,
@@ -57,6 +59,7 @@ describe('application logic', () => {
       expect(nextState).to.equal(
         Map({
           vote: Map({
+            round: 2,
             pair: List.of('Sunshine', 'Millions')
           }),
           entries: List.of('127 Hours', 'Trainspotting')
@@ -66,6 +69,7 @@ describe('application logic', () => {
     it('puts both from tied vote back to entries', () => {
       const state = Map({
         vote: Map({
+          round: 1,
           pair: List.of('Trainspotting', '28 Days Later'),
           tally: Map({
             Trainspotting: 3,
@@ -78,6 +82,7 @@ describe('application logic', () => {
       expect(nextState).to.equal(
         Map({
           vote: Map({
+            round: 2,
             pair: List.of('Sunshine', 'Millions')
           }),
           entries: List.of('127 Hours', 'Trainspotting', '28 Days Later')
@@ -87,6 +92,7 @@ describe('application logic', () => {
     it('marks winner when just one entry left', () => {
       const state = Map({
         vote: Map({
+          round: 1,
           pair: List.of('Trainspotting', '28 Days Later'),
           tally: Map({
             Trainspotting: 4,

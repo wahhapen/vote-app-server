@@ -22,7 +22,10 @@ export function next(state) {
     return state.remove('vote').remove('entries').set('winner', entries.first());
   }
   return state.merge({
-    vote: Map({ pair: entries.take(2) }),
+    vote: Map({
+      round: state.getIn(['vote', 'round'], 0) + 1,
+      pair: entries.take(2)
+    }),
     entries: entries.skip(2)
   });
 }
