@@ -16,4 +16,4 @@ or
 `npm run start`
 
 App provides data handling for client app
-github.com/wahhapen/app-vote-client
+[github.com/wahhapen/app-vote-client](https://github.com/wahhapen/app-vote-client)
